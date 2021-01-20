@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <link rel="stylesheet" href="Homanly30.css">
+        <input id="num1" type="text" placeholder="Number 1">
+        <input class="opera" id="op" type="text" placeholder="Operator">
+        <input id="num2" type="text" placeholder="Number 2"><br><br>
+        <div id="answer" ></div><br><br>
+        <button id="buttonn" class="buttonn buttonn1" onclick="opcheck()">Answer</button>
+        <script>
+          function opcheck() {
+          document.getElementById("answer").style="border: solid 2px;"
+          var Operator = document.getElementById("op").value;
+          var Num1 = Number(document.getElementById("num1").value)
+          var Num2 = Number(document.getElementById("num2").value)
+          if (Operator == "+") {
+          var sum = Num1 + Num2;
+          document.getElementById("answer").innerHTML = sum
+          }else if (Operator == "*") {
+          var pro = Num1 * Num2;
+          document.getElementById("answer").innerHTML = pro
+          }else if (Operator == "-") {
+          var dif = Num1 - Num2;
+          document.getElementById("answer").innerHTML = dif
+          }else if (Operator == "/") {
+          var quo = Num1 / Num2;
+          document.getElementById("answer").innerHTML = quo
+          }else if (Operator == "Homanly30") {
+          var eag = "Yep! That's me :)"
+          document.getElementById("answer").innerHTML = eag
+          document.getElementById("answer").style="background-color: lime;"
+          }
+          else if (Operator == "homanly30") {
+          var eag = "Yep! That's me :)"
+          document.getElementById("answer").innerHTML = eag
+          document.getElementById("answer").style="background-color: lime;"
+          }else {
+            document.getElementById("answer").innerHTML = "Please Write Something"
+            document.getElementById("answer").style="background-color: red;"
+          }
+          }
+        </script>
+    </body>
+</html>
