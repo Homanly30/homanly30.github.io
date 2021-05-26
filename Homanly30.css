@@ -16,12 +16,13 @@ body {
 }
 #answer {
     position: absolute;
-    right: 42%;
+    left: 50%;
     padding: 4px;
     width: 34%;
     border-radius: 50px;
     background-color: lightsalmon;
     text-align: center;
+    transform: translateY(-50%)
 }    
 #buttonn {
     position: absolute;
