@@ -1,45 +1,58 @@
 <!DOCTYPE html>
-  <html>
+<html>
     <body>
-     <meta name="veiwport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="Homanly30.css">
-        <input id="num1" type="text" placeholder="Number 1">
-        <input class="opera" id="op" type="text" placeholder="Operator">
-        <input id="num2" type="text" placeholder="Number 2"><br><br>
-        <div id="answer" ></div><br><br>
-        <button id="buttonn" class="buttonn buttonn1" onclick="opcheck()">Answer</button>
+    			 <head>
+    			 				<title>Clicker30</title>
+    			 	</head>
+    				<button style="transform: translateX(50%) translateY(50%); position: absolute; right: 50%;" onclick="multi()">Multiply Clicks</button>
+    				<p id="cost" style="transform: translateX(50%) translateY(50%); position: absolute; right: 50%; bottom: 85%;"></p>
+    				<p id="up" style="transform: translateX(50%) translateY(50%); position: absolute; right: 50%; bottom: 60%;"></p>
+        <p id="p" style="transform: translateX(50%) translateY(50%); position: absolute; right: 50%; bottom: 50%;"></p>
+        <button style="transform: translateX(50%) translateY(50%); position: absolute; right: 50%; bottom: 45%;" onclick="res()">Reset</button>
+        <p style="transform: translateX(50%) translateY(50%); position: absolute; right: 50%; bottom: 18%; height: 40%; width: 98%; border: solid blue; background-color: lime; color: brown;" onclick="work()"></p>
         <script>
-          function opcheck() {
-          document.getElementById("answer").style="border: solid 2px;"
-          var Operator = document.getElementById("op").value;
-          var Num1 = Number(document.getElementById("num1").value)
-          var Num2 = Number(document.getElementById("num2").value)
-          if (Operator == "+") {
-          var sum = Num1 + Num2;
-          document.getElementById("answer").innerHTML = sum
-          }else if (Operator == "*") {
-          var pro = Num1 * Num2;
-          document.getElementById("answer").innerHTML = pro
-          }else if (Operator == "-") {
-          var dif = Num1 - Num2;
-          document.getElementById("answer").innerHTML = dif
-          }else if (Operator == "/") {
-          var quo = Num1 / Num2;
-          document.getElementById("answer").innerHTML = quo
-          }else if (Operator == "Homanly30") {
-          var eag = "Yep! That's me :)"
-          document.getElementById("answer").innerHTML = eag
-          document.getElementById("answer").style="background-color: lime;"
-          }
-          else if (Operator == "homanly30") {
-          var eag = "Yep! That's me :)"
-          document.getElementById("answer").innerHTML = eag
-          document.getElementById("answer").style="background-color: lime;"
-          }else {
-            document.getElementById("answer").innerHTML = "Please Write Something"
-            document.getElementById("answer").style="background-color: red;"
-          }
-          }
+            var times = Number(localStorage.getItem("tm"));
+            			var up = document.getElementById("up");
+            var clicks = Number(localStorage.getItem("clicks"));
+            var p = document.getElementById("p");
+            p.innerHTML = clicks;
+            function work() {
+            var ac = Number(localStorage.getItem("mc"));
+                var p = document.getElementById("p");
+            var clicks = Number(localStorage.getItem("clicks"));
+                    clicks += ac;
+Number(localStorage.setItem("clicks", clicks));
+                    p.innerHTML = clicks;
+                }
+            function res() {
+             Number(localStorage.setItem("clicks", 0)); Number(localStorage.setItem("mc", 1));
+Number(localStorage.setItem("tm", 0));
+                p.innerHTML = Number(localStorage.getItem("clicks"));
+            }
+            function multi() {
+            var times = Number(localStorage.getItem("tm"));
+            var clicks = Number(localStorage.getItem("clicks"));
+            		if (clicks < 50 + times * 80) {
+            		setTimeout(del, 2222);
+            		up.innerHTML = "Not enough Clicks!";			
+            		function  del() {
+            				up.innerHTML = "";		
+            		}
+            		} else {
+            		clicks -= 50 + times * 80;
+            		localStorage.setItem("mc", 2 * (times + 1));
+            		localStorage.setItem("clicks", clicks);
+            		localStorage.setItem("tm", times + 1);
+            		p.innerHTML = clicks;
+            		}
+            } setInterval(change, 1);
+            function change() {
+            var times = Number(localStorage.getItem("tm"));
+            var cost = 50 + times * 80;
+            document.getElementById("cost").innerHTML = "cost: " + cost;
+            }
         </script>
+        <!--
     </body>
 </html>
+-->
